@@ -4,7 +4,7 @@ Program for compressing 3D objects into binary discrete cube format
 
 ## Installation
 
- install this project, first clone the repository:
+To install this project, first clone this repository:
 
 $ git clone https://github.com/uTakCouDeT/Shakalizator-3000.git
 
