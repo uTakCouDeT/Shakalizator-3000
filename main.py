@@ -1,15 +1,16 @@
 import visualizer
-import shakalizator
+import numpy as np
+import json
 
-# Путь до исходной модели
-filename = 'models/Heart.obj'
+model_name = 'Heart'
 
-# Масштаб сжатия
-len_x, len_y, len_z = 28, 28, 28
+if __name__ == '__main__':
+    # Путь до исходной модели
+    filename = f'json_data/{model_name}.json'
 
-# Функция сжатия 3D модели
-grid = shakalizator.compression(filename, len_x, len_y, len_z)
-print(grid)
+    with open(filename) as reader:
+        data = json.load(reader)
+        voxels = np.array(data['voxels'])
 
-# Визуализация результатов
-visualizer.Cube_3D(grid, len_x, len_y, len_z)
+    # Визуализируем модель
+    visualizer.Cube_3D(voxels)
