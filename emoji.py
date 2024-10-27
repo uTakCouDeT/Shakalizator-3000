@@ -23,20 +23,22 @@ def build_smile():
         voxels = np.array(data['voxels'])
 
     colors = voxels.copy()
-    # Глаза смайлика
-    colors[2, 1, 5] = False
-    colors[5, 1, 5] = False
-    # Улыбка
-    colors[5, 1, 2] = False
-    colors[4, 1, 1] = False
-    colors[3, 1, 1] = False
-    colors[2, 1, 2] = False
     facecolors = np.where(colors, '#ffff00', '#000000')
+
+    # Глаза смайлика
+    facecolors[2, 1, 5] = '#0000ff'
+    facecolors[5, 1, 5] = '#0000ff'
+
+    # Улыбка
+    facecolors[5, 1, 2] = '#0000ff'
+    facecolors[4, 1, 1] = '#0000ff'
+    facecolors[3, 1, 1] = '#0000ff'
+    facecolors[2, 1, 2] = '#0000ff'
 
     rgb_format = hex_to_rgb(facecolors)
 
     input_data = {
-        'rgb': rgb_format.tolist()
+        'voxels': rgb_format.tolist()
     }
 
     with open('emojis/smile.json', 'w') as writer:
@@ -54,20 +56,22 @@ def build_sad():
         voxels = np.array(data['voxels'])
 
     colors = voxels.copy()
-    # Глаза смайлика
-    colors[2, 1, 5] = False
-    colors[5, 1, 5] = False
-    # Улыбка
-    colors[5, 1, 1] = False
-    colors[4, 0, 2] = False
-    colors[3, 0, 2] = False
-    colors[2, 1, 1] = False
     facecolors = np.where(colors, '#ffff00', '#000000')
+
+    # Глаза смайлика
+    facecolors[2, 1, 5] = '#0000ff'
+    facecolors[5, 1, 5] = '#0000ff'
+
+    # Улыбка
+    facecolors[5, 1, 1] = '#0000ff'
+    facecolors[4, 0, 2] = '#0000ff'
+    facecolors[3, 0, 2] = '#0000ff'
+    facecolors[2, 1, 1] = '#0000ff'
 
     rgb_format = hex_to_rgb(facecolors)
 
     input_data = {
-        'rgb': rgb_format.tolist()
+        'voxels': rgb_format.tolist()
     }
 
     with open('emojis/sad.json', 'w') as writer:

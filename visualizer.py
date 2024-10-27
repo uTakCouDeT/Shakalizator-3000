@@ -15,5 +15,5 @@ def Cube_3D(voxels, facecolors=None, len_x=8, len_y=8, len_z=8):
     ax.set_ylim(0, len_y - 1)
     ax.set_zlim(0, len_z - 1)
 
-    ax.view_init(0, -90)
+    # ax.view_init(0, -90)
     plt.show()

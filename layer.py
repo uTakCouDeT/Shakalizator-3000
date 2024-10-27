@@ -23,7 +23,7 @@ def layer(dict_value, i):
 
             # Проверка сколько объема фигуры находится в области кубика
             small_box = trimesh.creation.box(bounds=[[x_begin, y_begin, z_begin], [x_end, y_end, z_end]])
-            inter = trimesh.boolean.intersection([dict_value['mesh'], small_box])
+            inter = trimesh.boolean.intersection([dict_value['mesh'], small_box], engine='blender')
             main_volume = inter.volume
 
             print(f'{main_volume}: {i} {j} {k}')

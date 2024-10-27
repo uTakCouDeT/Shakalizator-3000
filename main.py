@@ -2,7 +2,7 @@ import visualizer
 import numpy as np
 import json
 
-model_name = 'Heart'
+model_name = 'sphere'
 
 if __name__ == '__main__':
     # Путь до исходной модели

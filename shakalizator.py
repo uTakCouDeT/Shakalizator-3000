@@ -4,6 +4,7 @@ import numpy as np
 import multiprocessing as mp
 from layer import layer
 
+
 def compression_begin(path, len_x=8, len_y=8, len_z=8):
     # Загружаем модель
     mesh = trimesh.load(path)
@@ -72,7 +73,8 @@ def compression(path, len_x=8, len_y=8, len_z=8):
 
     # Считаем объем кубика
     small_box = trimesh.creation.box(bounds=[[new_bbox[0][0], new_bbox[0][1], new_bbox[0][2]],
-                                       [new_bbox[0][0] + step_x, new_bbox[0][1] + step_y, new_bbox[0][2] + step_z]])
+                                             [new_bbox[0][0] + step_x, new_bbox[0][1] + step_y,
+                                              new_bbox[0][2] + step_z]])
 
     big_box = trimesh.creation.box(bounds=new_bbox)
     volume_part = mesh.volume / big_box.volume
@@ -97,7 +99,7 @@ def compression(path, len_x=8, len_y=8, len_z=8):
     # Проходим по каждой точке сетки
     threads = []
     for i in range(len_x):
-        th = mp.Process(target=layer, args=(dict_value, i, ))
+        th = mp.Process(target=layer, args=(dict_value, i,))
         th.start()
         threads.append(th)
 
